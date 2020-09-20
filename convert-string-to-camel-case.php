@@ -8,7 +8,7 @@
 //toCamelCase("The_Stealth_Warrior"); // returns "TheStealthWarrior"
 
 
-//SOLUTION..
+//SOLUTION ONE..
 function toCamelCase($str){
   //STEP 1: put the symbols or signs you would like to remove from the string in an array if more than one
     $i = array("-","_");
@@ -27,4 +27,12 @@ function toCamelCase($str){
       $str = str_replace(' ', '', ucwords($str));
       return lcfirst($str);
     }
+}
+
+//OR SOLUTION TWO..
+function toCamelCase($str){
+  $camelStr = ucwords( $str, "_-");
+  $camelStr = preg_replace('/[_-]/','',$camelStr);
+  $camelStr[0] = $str[0];
+  return $camelStr;
 }
